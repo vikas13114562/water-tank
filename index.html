@@ -9,17 +9,24 @@
   </head>
   <body>
     <main>
-      <div>
-        <input type="text" id="input" />
+      <div id="notice">
+        <ul>
+          <li>Please enter only numbers.</li>
+          <li>All the number should be between 0 to 10.</li>
+          <li>Insert space between two numbers.</li>
+          <li>Problem array length should be less or equal than 10.</li>
+        </ul>
+      </div>
+      <div class="int-btn">
+        <input type="text" id="input" placeholder="Example. 1 4 2 1" />
         <button id="btn">Submit</button><span id="error"></span>
       </div>
       <div id="input_text">
-        Input:<span id="input_text_span"> [0,0,0,0,0,0,0,0,0,0] </span>
+        <h4>Input:<span id="input_text_span"> [0,0,0,0,0,0,0,0,0,0] </span></h4>
       </div>
       <div id="input_problem"></div>
       <div>
-        Output :
-        <span id="output_text"></span>
+        <h4>Output : <span id="output_text"></span></h4>
       </div>
       <div id="output"></div>
     </main>

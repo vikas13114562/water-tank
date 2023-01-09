@@ -1,29 +1,98 @@
-#error{
-    color: red;
-    font-size: 12px;
-    padding-left: 10px;
+* {
+  margin: 0px;
+  box-sizing: border-box;
 }
 
-.simple{
-    border: .25px solid black;
-    height: 20px;
-    width: 70px;
+main {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 30px;
 }
 
-#input_problem, #output{
-    display: flex;
-
+#notice {
+  width: 30%;
+  margin: 0px auto;
+  border: 1px solid grey;
+  padding: 20px;
 }
 
-#input_problem > div, #output > div {
-    display: flex;
-    flex-direction: column;
+input,
+button {
+  height: 40px;
+  border: 1px solid black;
+  border-radius: 6px;
+  padding: 10px;
+}
+button {
+  width: 15%;
+  font-size: large;
+  font-weight: 400;
+  background-color: rgb(105, 137, 105);
+  cursor: pointer;
+}
+input {
+  width: 30%;
+  margin-right: 20px;
+  font-size: 16px;
 }
 
-.tower{
-    background-color: yellow;
+.int-btn {
+  display: flex;
+  align-items: center;
 }
 
-.water{
-    background-color: aqua;
+h4 {
+  font-size: 20px;
+  line-height: 10px;
+}
+
+#error {
+  color: red;
+  font-size: 16px;
+  padding-left: 10px;
+}
+
+.simple {
+  border: 0.25px solid black;
+  height: 4vh;
+  width: 8vw;
+}
+
+#input_problem,
+#output {
+  display: flex;
+}
+
+#input_problem > div,
+#output > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.tower {
+  background-color: yellow;
+}
+
+.water {
+  background-color: aqua;
+}
+
+@media only screen and (max-width: 700px) {
+  #notice {
+    width: 95%;
+  }
+  button {
+    width: 35%;
+    font-size: 16px;
+    font-weight: 400;
+  }
+  input {
+    width: 65%;
+  }
+  #input_problem,
+  #output {
+    justify-content: center;
+  }
 }
