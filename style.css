@@ -10,12 +10,12 @@
     width: 70px;
 }
 
-#input_problem{
+#input_problem, #output{
     display: flex;
 
 }
 
-#input_problem > div {
+#input_problem > div, #output > div {
     display: flex;
     flex-direction: column;
 }

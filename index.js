@@ -1,7 +1,10 @@
 const btn = document.getElementById('btn')
 const int = document.getElementById('input')
 const span_text = document.getElementById('input_text_span');
+const op_text = document.getElementById('output_text');
 const err = document.getElementById('error')
+
+const output_div = document.getElementById('output');
 
 const input_problem = document.getElementById('input_problem')
 let problem_arr;
@@ -10,22 +13,23 @@ let right_max ;
 let output_arr = [];
 
 
-function createProblemSetUp() {
+function createProblemSetUp(container,class_key) {
     for(let i=0; i<10; i++) {
         let div = document.createElement('div')
-        div.id = `${i}`
+        div.id = `first_${i}`
 
         for(let j=0; j<10; j++) {
             let child_div = document.createElement('div')
-            child_div.id = `${i},${j}`
+            
             child_div.classList.add('simple')
+            child_div.classList.add(`${class_key}row${i}`)
             div.append(child_div)
         }
-        input_problem.append(div)
+        container.append(div)
     }
 }
 
-createProblemSetUp()
+createProblemSetUp(input_problem,'first')
 
 
 btn.addEventListener('click', getInput)
@@ -63,13 +67,56 @@ function getInput() {
         }
 
         output_arr = [];
+        let output_ans = 0;
 
         problem_arr.forEach((ele,ind) =>{
             let temp = Math.min(left_max[ind],right_max[ind]) - ele
+            output_ans += Number(temp);
             output_arr.push(temp)
         })
 
-        console.log(output_arr);
+        op_text.innerHTML = `${output_ans} Units`
+
+        problemSetUp(problem_arr,output_arr, 'first')
+        outputSetUp(output_arr,output_div)
 
     }
 }
+
+function problemSetUp(problem_arr,solution_arr,class_key) {
+    for(let i=0; i<problem_arr.length; i++){
+        let tar_div = document.querySelectorAll(`.${class_key}row${i}`)
+       
+        for(let j=0; j<problem_arr[i]; j++) {
+            tar_div[9-j].classList.add('tower')
+        }
+
+       let cnt = solution_arr[i];
+       let k = 0;
+
+       while(cnt != 0) {
+            
+            if(!tar_div[9-k].classList.contains('tower')) {
+                tar_div[9-k].classList.add('water')
+                cnt--;
+            }
+            k++;
+
+       }
+    }
+}
+
+function outputSetUp(solution_arr, container) {
+    createProblemSetUp(container,'second')
+
+    for(let i=0; i<solution_arr.length; i++){
+        let tar_div = document.querySelectorAll(`.secondrow${i}`)
+       
+        for(let j=0; j<solution_arr[i]; j++) {
+            tar_div[9-j].classList.add('water')
+        }
+
+    }
+    
+}
+
