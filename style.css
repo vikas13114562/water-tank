@@ -1,0 +1,29 @@
+#error{
+    color: red;
+    font-size: 12px;
+    padding-left: 10px;
+}
+
+.simple{
+    border: .25px solid black;
+    height: 20px;
+    width: 70px;
+}
+
+#input_problem{
+    display: flex;
+
+}
+
+#input_problem > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.tower{
+    background-color: yellow;
+}
+
+.water{
+    background-color: aqua;
+}
