@@ -15,7 +15,7 @@ let output_arr = [];
 function createProblemSetUp(container, class_key) {
   for (let i = 0; i < 10; i++) {
     let div = document.createElement("div");
-    div.id = `first_${i}`;
+    div.id = `${class_key}_${i}`;
 
     for (let j = 0; j < 10; j++) {
       let child_div = document.createElement("div");
@@ -80,6 +80,7 @@ function getInput() {
     let unit = output_ans > 1 ? "Units" : "Unit";
 
     op_text.innerHTML = `${output_ans} ${unit}`;
+    console.log(output_arr);
 
     problemSetUp(problem_arr, output_arr, "first");
     outputSetUp(output_arr, output_div);
