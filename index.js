@@ -80,7 +80,7 @@ function getInput() {
     let unit = output_ans > 1 ? "Units" : "Unit";
 
     op_text.innerHTML = `${output_ans} ${unit}`;
-    console.log(output_arr);
+    
 
     problemSetUp(problem_arr, output_arr, "first");
     outputSetUp(output_arr, output_div);
